@@ -1,0 +1,28 @@
+import re
+import whois
+
+def is_suspicious(url):
+    phishing_keywords = ['login', 'verify', 'secure', 'bank', 'update']
+    shorteners = ['bit.ly', 'tinyurl', 'goo.gl']
+
+    if re.search(r'https?://\d+\.\d+\.\d+\.\d+', url):
+        return True, "IP address ഉപയോഗിക്കുന്നു"
+    if any(word in url.lower() for word in phishing_keywords):
+        return True, "Phishing keyword ഉണ്ട്"
+    if any(short in url for short in shorteners):
+        return True, "Shortened URL ആണ്"
+    return False, "Phishing ലക്ഷണങ്ങൾ കണ്ടെത്തിയില്ല"
+
+def get_domain_age(url):
+    try:
+        domain = re.findall(r"https?://([A-Za-z0-9.-]+)", url)[0]
+        info = whois.whois(domain)
+        return info.creation_date
+    except:
+        return None
+
+with open("test_urls.txt") as f:
+    for line in f:
+        url = line.strip()
+        result, reason = is_suspicious(url)
+        print(f"[{url}] => {'⚠️ Suspicious' if result else '✅ Safe'} ({reason})")
