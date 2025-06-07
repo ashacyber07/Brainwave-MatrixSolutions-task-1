@@ -1,36 +1,54 @@
 # Brainwave-MatrixSolutions-task-1
 Build a Python Cyber Security - Phishing Link Scanner
 
-# Description
-This project is about building a phishing link scanner in Python. The tool allows users to scan URLs for phishing indicators, contributing to online security.
 
-# 📂 Project Structure
+# 📝 Project Description
+  This project is a simple Phishing Link Scanner built using Python. It analyzes given URLs to detect potential phishing threats using:
+  * Pattern matching
+  * Keyword analysis
+  * WHOIS domain data
 
-  # 🔧 Tools & Technologies Use
-   - 🐍 Python 3.x  
-   - 📦 Libraries: `re`, `whois`  
-   - 📝 Text Editor: VS Code / Notepad  
-   - 💻 OS: Windows/Linux  
-   - 🖥️ CLI: Terminal / Command Prompt  
+# 📁 File Structure
+phishing_link_scanner/
+├── phishing_scanner.py       # Main scanner script
+├── test_urls.txt             # Sample URLs for testing
+├── README.md                 # Project documentation
 
- ## 🎯 Objective
-  - Detect phishing URLs based on patterns and keywords
-  - Flag IP-based links and shortened URLs
-  - Check domain registration info via `whois`
-  - Output simple reports indicating suspicious or safe URLs
+📜 phishing_scanner.py
 
-📈 Future Scope
-   * Integrate machine learning-based phishing detection
-   * Check against real-time phishing databases (Google Safe Browsing)
-   * Build a GUI using tkinter or convert to a web app
-   * Browser extension for real-time link scanning
+📂 test_urls.txt
 
-# Features
-  * Retrieve web page content.
-  * Analyze HTML content for suspicious forms.
-  * Detect common phishing indicators.
 
-# conclusion
-  This Python tool helps detect suspicious links using simple rules like phishing keywords, IP usage, and shortened URLs. It is a basic but effective project to raise awareness about phishing and lays the          foundation for building smarter cybersecurity tools in the future.
+⚙️ How It Works
+ 1.Regex Matching is used to detect:
+    IP-based URLs
+    URLs with suspicious keywords
+    Shortened URLs
+ 2.WHOIS Lookup (optional): The domain creation date is fetched for further threat scoring.
+
+ # ▶️ How to Run
+  1. Install required package
+    *cmnd - pip install python-whois
+  2.Create files
+    * Save the Python code in phishing_scanner.py
+    * Add test URLs to test_urls.txt
+  3.Run the script
+     * python phishing_scanner.py
+  4.Output
+     [https://bit.ly/login-fake] => ⚠️ Suspicious 
+     [http://192.168.0.1/verify] => ⚠️ Suspicious
+
+# 📊Conclusion
+  * This scanner helps:
+  * Detect malicious patterns in links
+  * Alert users before clicking on harmful URLs
+  * Provide basic analysis for cyber threat awareness
+
+# ✅Future Improvements
+  * Integrate with VirusTotal API
+  * GUI interface
+  * Export results to CSV or JSON
+  * Add threat scoring system
+
 
 
