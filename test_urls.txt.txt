@@ -1,0 +1,4 @@
+https://bit.ly/login-fake
+http://192.168.0.1/verify
+https://secure-banking.net/secure
+https://www.google.com
